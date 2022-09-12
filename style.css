@@ -1,0 +1,103 @@
+.progress-bar {
+  width: 300px;
+  margin: 0 0 50px 0;
+  height: 5px;
+  border: 1px solid #565656;
+  border-radius: 5px;
+}
+
+.progress-bar:after {
+  content: '';
+  display: block;
+  height: 100%;
+  background-color: orange;
+  border-radius: 5px;
+  animation: progress 2s ease-in forwards;
+}
+
+@keyframes progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 90%;
+  }
+}
+
+.play-state {
+  width: 300px;
+  margin: 0 0 50px 0;
+  height: 20px;
+  border: 1px solid #565656;
+  border-radius: 5px;
+}
+
+.green-bar{
+  content: '';
+  display: block;
+  height: 20px;
+  background-color: green;
+  border-radius: 5px;
+  animation: move 4s linear infinite;
+  position: absolute;
+}
+
+.green-bar:hover {
+  animation-play-state: paused;
+}
+
+@keyframes move {
+  from { width: 0; }
+  to { width: 300px; }
+}
+
+.container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: 2px solid #000000;
+}
+
+.holder {
+  position: absolute;
+  width: 20px;
+  height: 300px;
+
+  animation-name: moving;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 4.8s;
+}
+
+.ball {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: red;
+
+  animation-name: bouncing;
+  animation-iteration-count: infinite;
+  animation-duration: 4.2s;
+}
+
+@keyframes moving {
+  from {
+    left: 0;
+  }
+  to {
+    left: 280px;
+  }
+}
+
+@keyframes bouncing {
+  from, to {
+    bottom: 280px;
+    animation-timing-function: ease-in;
+  }
+  50% {
+    bottom: 0;
+    animation-timing-function: ease-out;
+  }
+}
